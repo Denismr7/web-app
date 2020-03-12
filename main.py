@@ -17,6 +17,7 @@ def aboutme():
 def portfolio():
     return render_template("/portfolio.html")
 
+
 @app.route("/hairsalon")
 def hairsalon():
     return render_template("/hairsalon.html")
