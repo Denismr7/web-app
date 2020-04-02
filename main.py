@@ -1,16 +1,28 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    hi = "Hello, user! "
+
+    return render_template("index.html", hi=hi)
 
 
-@app.route("/about-me")
+@app.route("/about-me", methods=["GET", "POST"])
 def aboutme():
-    return render_template("/aboutme.html")
+    if request.method == "GET":
+        return render_template("/aboutme.html")
+    elif request.method == "POST":
+        contact_name = request.form.get("contact-name")
+        contact_email = request.form.get("email")
+        contact_message = request.form.get("message")
+
+        print(contact_name)
+        print(contact_email)
+        print(contact_message)
+        return render_template("success.html")
 
 
 @app.route("/portfolio")
@@ -24,4 +36,4 @@ def hairsalon():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

@@ -1,7 +1,10 @@
 {% extends "base.html"%}
 
+{% block title %} Home {% endblock title %}
+
 {% block content %}
-<h1>¡Hola!, esta es una página web personal de prueba para SmartNinja</h1>
+<h1>¡Hola!, estas es una página web personal de prueba para SmartNinja</h1>
+<p>{{hi}}</p>
 <h2><a href="http://127.0.0.1:5000/about-me">Sobre Mi</a></h2>
 <h2><a href="http://127.0.0.1:5000/portfolio">Portfolio</a></h2>
 {% endblock content %}
